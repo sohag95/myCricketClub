@@ -2,8 +2,9 @@
   "name": "cca-app",
   "version": "1.0.0",
   "description": "",
-  "main": "db.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node db.js",
     "watch": "nodemon db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
