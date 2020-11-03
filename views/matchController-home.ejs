@@ -1,0 +1,150 @@
+<%- include('includes/header') %>
+<div class="container">
+  <% regErrors.forEach(function(message) { %>
+  <div class="alert alert-danger small"><%= message %></div>
+  <% }) %> <%- include('includes/flash') %>
+</div>
+<% if (user.userType=="matchController") { %>
+
+<div class="container">
+  <div class="row paddingMarginZero">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 align-self-start shadow">
+          <div class="container" style="margin-top: 1rem">
+            <div class="text-center">
+              <picture>
+                <img class="homeProfilePic shadow" src="/images/<%=user.regNumber%>.jpg" alt="" />
+              </picture>
+              <a href="#"><h2 class="about-h2 text-uppercase bold-font nameStyle"><%= user.username %></h2></a>
+            </div>
+          </div>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingPasswordChange">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed bolderFont" data-toggle="collapse" data-target="#collapsePasswordChange" aria-expanded="false" aria-controls="collapsePasswordChange">Change Your Password</button>
+                </h5>
+              </div>
+              <div id="collapsePasswordChange" class="collapse" aria-labelledby="headingPasswordChange" data-parent="#accordion">
+                <div class="card-body"><%- include('includes/passwordForm') %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 shadow">
+          <div class="container">
+            <div class="row paddingMarginZero">
+              <div class="col-md-1"></div>
+              <div class="col-md-10" style="padding-top: 0.75rem">
+                <form action="/updateScore" method="POST" id="registration-form">
+                  <h3 class="bold-font">Update Player's Scores</h3>
+                  <div class="form-group">
+                    <label for="registration-no-score" class="text-muted mb-1"><small>Enter registration number of the player</small></label>
+                    <input name="regNumber" id="registration-no-score" class="form-control" type="text" placeholder="Give the registration number" autocomplete="off" required />
+                  </div>
+
+                  <h4>Batting Details</h4>
+                  <div class="form-group">
+                    <label for="scoredruns" class="text-muted mb-1"><small>Scored Runs</small></label>
+                    <input name="scoredRuns" id="scoredruns" class="form-control" type="number" placeholder="Enter runs he/she had scored." autocomplete="off" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="balls" class="text-muted mb-1"><small>Played Balls</small></label>
+                    <input name="balls" id="balls" class="form-control" type="number" placeholder="Enter balls he/she had played ." autocomplete="off" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="fours" class="text-muted mb-1"><small>Total 4's he/she hit</small></label>
+                    <input name="fours" id="fours" class="form-control" type="number" placeholder="Enter the number of 4's he/she had hit." required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="sixes" class="text-muted mb-1"><small>Total 6's he/she hit</small></label>
+                    <input name="sixes" id="sixes" class="form-control" type="number" placeholder="Enter the number of 6's he/she had hit." required />
+                  </div>
+
+                  <h4>Bowling Details</h4>
+                  <div class="form-group">
+                    <label for="overs" class="text-muted mb-1"><small>Overs Bowled</small></label>
+                    <input name="overs" id="overs" class="form-control" type="number" placeholder="Enter the overs he/she had bowled." autocomplete="off" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="givenruns" class="text-muted mb-1"><small>Given Runs</small></label>
+                    <input name="givenRuns" id="givenruns" class="form-control" type="number" placeholder="Enter the runs he/she had given." autocomplete="off" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email-register" class="text-muted mb-1"><small>Wickets</small></label>
+                    <input name="wickets" id="email-register" class="form-control" type="number" required placeholder="Enter the number of wickets he/she had taken." autocomplete="off" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="maden" class="text-muted mb-1"><small>Maden Overs</small></label>
+                    <input name="maden" id="maden" class="form-control" type="number" required placeholder="Enter the number of maden overs he/she had bowled." autocomplete="off" />
+                  </div>
+                  <input type="hidden" name="_csrf" value="<%=csrfToken%>" />
+                  <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Update Scores</button>
+                </form>
+                <br />
+                <hr />
+                <br />
+                <form action="/matchShortDetails" method="POST" id="matchDetails">
+                  <h2 class="bold-font">Short Details About The Match</h2>
+
+                  <div class="form-group">
+                    <label for="matchType" class="text-muted mb-1"><small>Type of the match</small></label>
+                    <select required id="matchType" class="form-control" name="matchType" form="matchDetails">
+                      <option value="Practice match">Practice match</option>
+                      <option value="League match">League match</option>
+                      <option value="Group match">Group match</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="venue" class="text-muted mb-1"><small>Venue Name</small></label>
+                    <input required name="venue" id="venue" class="form-control" type="text" placeholder="Enter the venue name" autocomplete="off" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="firstTeam" class="text-muted mb-1"><small>First team name</small></label>
+                    <input required name="firstTeam" id="firstTeam" class="form-control" type="text" placeholder="Enter the first team name" autocomplete="off" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="secondTeam" class="text-muted mb-1"><small>Second team name</small></label>
+                    <input required name="secondTeam" id="secondTeam" class="form-control" type="text" placeholder="Enter the second team name" autocomplete="off" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="date" class="text-muted mb-1"><small>Date of the game</small></label>
+                    <input required name="date" id="date" class="form-control" type="date" placeholder="Enter the played date" autocomplete="off" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="details" class="text-muted mb-1"><small>Short details about the match</small></label>
+                    <textarea required name="details" id="details" class="body-content tall-textarea form-control" type="text"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="manOftheMatch" class="text-muted mb-1"><small>Man of the match</small></label>
+                    <input required name="manOftheMatch" id="manOftheMatch" class="form-control" type="text" placeholder="Enter the name of 'man of the match'" autocomplete="off" />
+                  </div>
+                  <input type="hidden" name="_csrf" value="<%=csrfToken%>" />
+                  <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Submit</button>
+                </form>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% }else{ %>
+<h1>Something is wrong here!!!</h1>
+<% } %> <%- include('includes/footer') %>

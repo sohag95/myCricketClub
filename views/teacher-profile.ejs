@@ -1,0 +1,68 @@
+<%- include('includes/header') %>
+
+<div class="container py-md-3">
+  <div class="row align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow">
+          <div class="d-flex justify-content-between container">
+            <div class="container" style="margin-top: 1rem">
+              <div class="text-center">
+                <picture>
+                  <img class="shadow homeProfilePic" src="/images/<%=profileUser.regNumber%>.jpg" alt="" />
+                </picture>
+                <h2 class="about-h2 text-uppercase bold-font" style="padding-top: 7px; padding-bottom: 8px">
+                  <%= profileUser.username %> <% if (isVisitorsProfile) { %>
+                  <span class="pt-2">
+                    <a href="/teacher/profile/<%= profileUser.regNumber %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit Profile"><i class="fas fa-edit"></i></a>
+                  </span>
+                  <% } %>
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="container mb-4 shadow profileDataContainer">
+            <p><strong>Name : </strong><%= profileUser.username %></p>
+            <p><strong>Address : </strong><%= profileUser.address %></p>
+            <p><strong>Phone Number : </strong><%= profileUser.phone %></p>
+            <p><strong>Email-id : </strong><%= profileUser.email %></p>
+            <p><strong>Experiences : </strong><%= profileUser.experiences %></p>
+            <p><strong>Role : </strong><%= profileUser.role %></p>
+            <% if (isVisitorsProfile) { %>
+            <span class="pt-2">
+              <p class="py-3 mt-4 btn btn-lg btn-primary btn-color btn-block">Your monthly fees has been payed till <strong></strong></p>
+            </span>
+            <% } %>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow">
+          <div class="container">
+            <div class="list-group">
+              <hr />
+              <% if (isVisitorsProfile) { %>
+              <h2 class="text-center bold-font">Your All Posts</h2>
+              <% }else{ %>
+              <h2 class="text-center"><strong><%= profileUser.username %></strong> Sir's All Posts</h2>
+              <% } %>
+              <hr />
+              <%if(!posts.length){%>
+              <div class="btn btn-block btn-info text-white">
+                <h3 class="text-center"><i>There is no post till now</i></h3>
+              </div>
+              <%}%> <%- include('includes/posts') %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

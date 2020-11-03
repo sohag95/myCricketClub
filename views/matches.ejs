@@ -1,0 +1,108 @@
+<%- include('includes/header') %>
+<div class="container py-md-3">
+  <div class="row align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div id="accordion" class="col-md-10 shadow">
+          <p class="text-center">
+            <a id="headingOne" class="btn btn-link card-header d-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> All Matches </a>
+            <a id="headingTwo" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Practice Matches </a>
+            <a id="headingThree" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> League Matches </a>
+            <a id="headingFour" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Group Matches </a>
+          </p>
+          <h2 class="text-center bold-font">Match Details</h2>
+          <div class="list-group">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              <h2 class="text-center">All Matches - <%= matches.length %></h2>
+              <div class="card card-body">
+                <% matches.forEach(function(match) { %>
+                <div class="mb-4 innerBgColor">
+                  <div class="text-center upperBgColor paddingTop">
+                    <h4>Match Number: <strong><%= match.matchNumber %></strong></h4>
+                    <p class="btmMarginZero"><strong class="text-uppercase"><%= match.firstTeam %></strong> vs <strong class="text-uppercase"><%= match.secondTeam %></strong></p>
+                    <p class="btmMarginZero"><strong>Match Played On : </strong><%= match.date %></p>
+                    <p class="btmMarginZero"><strong> Match Type : </strong><%= match.matchType%></p>
+                    <p class="paddingBottom"><strong> Venue : </strong><%= match.venue%></p>
+                  </div>
+                  <div class="shortDetailsContainer">
+                    <p><strong>Short Details : </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nam omnis, doloribus culpa distinctio, quisquam iste pariatur, assumenda eligendi rem in non dignissimos accusantium? Et iste blanditiis sapiente eius provident saepe pariatur nihil ipsum, doloremque aspernatur? Facere error exercitationem ipsum quas quia adipisci voluptate facilis id expedita architecto, obcaecati dolor. <%= match.details %></p>
+                  </div>
+
+                  <p class="text-center upperBgColor btmMarginZero"><strong class="text-uppercase"> Man Of The Match : <%= match.manOftheMatch %></strong></p>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <h2 class="text-center">All Practice Matches - <%= practiceMatches.length %></h2>
+              <div class="card card-body">
+                <% practiceMatches.forEach(function(match) { %>
+                <div class="mb-4 innerBgColor">
+                  <div class="text-center upperBgColor paddingTop">
+                    <h4>Match Number: <strong><%= match.matchNumber %></strong></h4>
+                    <p class="btmMarginZero"><strong class="text-uppercase"><%= match.firstTeam %></strong> vs <strong class="text-uppercase"><%= match.secondTeam %></strong></p>
+                    <p class="btmMarginZero"><strong>Match Played On : </strong><%= match.date %></p>
+                    <p class="btmMarginZero"><strong> Match Type : </strong><%= match.matchType%></p>
+                    <p class="paddingBottom"><strong> Venue : </strong><%= match.venue%></p>
+                  </div>
+                  <div class="shortDetailsContainer">
+                    <p><strong>Short Details : </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nam omnis, doloribus culpa distinctio, quisquam iste pariatur, assumenda eligendi rem in non dignissimos accusantium? Et iste blanditiis sapiente eius provident saepe pariatur nihil ipsum, doloremque aspernatur? Facere error exercitationem ipsum quas quia adipisci voluptate facilis id expedita architecto, obcaecati dolor. <%= match.details %></p>
+                  </div>
+
+                  <p class="text-center upperBgColor btmMarginZero"><strong class="text-uppercase"> Man Of The Match : <%= match.manOftheMatch %></strong></p>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <h2 class="text-center">All League Matches - <%= leagueMatches.length %></h2>
+              <div class="card card-body">
+                <% leagueMatches.forEach(function(match) { %>
+                <div class="mb-4 innerBgColor">
+                  <div class="text-center upperBgColor paddingTop">
+                    <h4>Match Number: <strong><%= match.matchNumber %></strong></h4>
+                    <p class="btmMarginZero"><strong class="text-uppercase"><%= match.firstTeam %></strong> vs <strong class="text-uppercase"><%= match.secondTeam %></strong></p>
+                    <p class="btmMarginZero"><strong>Match Played On : </strong><%= match.date %></p>
+                    <p class="btmMarginZero"><strong> Match Type : </strong><%= match.matchType%></p>
+                    <p class="paddingBottom"><strong> Venue : </strong><%= match.venue%></p>
+                  </div>
+                  <div class="shortDetailsContainer">
+                    <p><strong>Short Details : </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nam omnis, doloribus culpa distinctio, quisquam iste pariatur, assumenda eligendi rem in non dignissimos accusantium? Et iste blanditiis sapiente eius provident saepe pariatur nihil ipsum, doloremque aspernatur? Facere error exercitationem ipsum quas quia adipisci voluptate facilis id expedita architecto, obcaecati dolor. <%= match.details %></p>
+                  </div>
+
+                  <p class="text-center upperBgColor btmMarginZero"><strong class="text-uppercase"> Man Of The Match : <%= match.manOftheMatch %></strong></p>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+              <h2 class="text-center">All Group Matches - <%= groupMatches.length %></h2>
+              <div class="card card-body">
+                <% groupMatches.forEach(function(match) { %>
+                <div class="mb-4 innerBgColor">
+                  <div class="text-center upperBgColor paddingTop">
+                    <h4>Match Number: <strong><%= match.matchNumber %></strong></h4>
+                    <p class="btmMarginZero"><strong class="text-uppercase"><%= match.firstTeam %></strong> vs <strong class="text-uppercase"><%= match.secondTeam %></strong></p>
+                    <p class="btmMarginZero"><strong>Match Played On : </strong><%= match.date %></p>
+                    <p class="btmMarginZero"><strong> Match Type : </strong><%= match.matchType%></p>
+                    <p class="paddingBottom"><strong> Venue : </strong><%= match.venue%></p>
+                  </div>
+                  <div class="shortDetailsContainer">
+                    <p><strong>Short Details : </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nam omnis, doloribus culpa distinctio, quisquam iste pariatur, assumenda eligendi rem in non dignissimos accusantium? Et iste blanditiis sapiente eius provident saepe pariatur nihil ipsum, doloremque aspernatur? Facere error exercitationem ipsum quas quia adipisci voluptate facilis id expedita architecto, obcaecati dolor. <%= match.details %></p>
+                  </div>
+
+                  <p class="text-center upperBgColor btmMarginZero"><strong class="text-uppercase"> Man Of The Match : <%= match.manOftheMatch %></strong></p>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

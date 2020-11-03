@@ -1,0 +1,41 @@
+<%- include('includes/header') %>
+<div class="container py-md-3">
+  <div class="row align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow">
+          <h2 class="text-center bold-font">All Coaches</h2>
+          <div class="card card-body">
+            <% coaches.forEach(function(coach) { %>
+
+            <div class="mb-4 coachesUpperPart">
+              <div class="container" style="margin-top: 1rem">
+                <div class="text-center">
+                  <picture>
+                    <img class="shadow coachesImg" src="/images/<%=coach.regNumber%>.jpg" alt="" />
+                  </picture>
+                  <h2 class="about-h2 text-uppercase nameStyle"><%= coach.username %></h2>
+                </div>
+              </div>
+
+              <div class="container coachesLowerPart">
+                <p><strong>Name : </strong><%= coach.username %></p>
+                <p><strong>Address : </strong><%= coach.address %></p>
+                <p><strong>Phone Number : </strong><%= coach.phone %></p>
+                <p><strong>Email-id : </strong><%= coach.email %></p>
+
+                <p><strong>Experiences : </strong><%= coach.experiences %></p>
+                <p><strong>Role : </strong><%= coach.role %></p>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>

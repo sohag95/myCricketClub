@@ -1,0 +1,158 @@
+<%- include('includes/header') %>
+<div class="container">
+  <% regErrors.forEach(function(message) { %>
+    <div class="alert alert-danger small"><%= message %></div>
+  <% }) %>
+  <%- include('includes/flash') %>
+</div>
+
+<% if (user.userType=="student") { %>
+
+  
+
+<div class="container">
+  <div class="row paddingMarginZero" >
+    <div class="col-md-12" >
+        <div class="row">
+          <div class="col-md-3 align-self-start shadow" >
+            <div class=" container" style="margin-top: 1rem;">
+              <a  href="/studentProfile/<%= user.regNumber %>">                               
+                <div class="text-center">
+                <picture>
+                  <img class="shadow homeProfilePic"  src="/images/<%=user.regNumber%>.jpg"  alt="">
+                </picture> 
+                <h2 class="about-h2 text-uppercase nameStyle" ><%= user.username %></h2>
+              </a>
+              </div>
+            </div>  
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link bolderFont"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      All Teachers
+                    </button>
+                  </h5>
+                </div>
+            
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                      <div class="list-group">
+                      <% teachers.forEach(function(teacher) { %>
+                        <a href="/teacherProfile/<%= teacher.regNumber %>" class="list-group-item list-group-item-action">
+                          <img class="avatar-tiny" src="/images/<%=teacher.regNumber%>.jpg">
+                          <strong><%= teacher.username %> </strong>
+                      </a>
+                      <% }) %>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed bolderFont"   data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Same Group Students
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">             
+                      <div class="list-group">
+                      <% groupStudents.forEach(function(student) { %>
+                        <% if(student.regNumber!=user.regNumber){ %>
+                        <a href="/StudentProfile/<%= student.regNumber %>" class="list-group-item list-group-item-action">
+                          <img class="avatar-tiny" src="/images/<%=student.regNumber%>.jpg">
+                          <strong><%= student.username %> </strong>
+                        </a>
+
+                      <% }}) %>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed bolderFont" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Collapsible Group Item #3
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div>
+            </div>      
+          </div>
+
+            <div class="col-md-9 shadow" >
+              <div class="text-center" >
+                <% birthdayBoys.forEach(function(bdboy) { %>
+                  <div class="btn btn-block btn-info text-white" >
+                    <%var him_her= (bdboy.gender=="male") ? "his":"her";%>                             
+                    <i>Today is <strong><%=bdboy.username%></strong>'s Birthday,Let's celebrate <%=him_her%> birthday.</i>                             
+                  </div>
+                <%})%>
+              </div>
+                  
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-10">
+                        
+                        <div >
+                          <div class="container " >
+                            <div class="row">
+                              <div class="col-md-2"></div>
+                              <div class="col-md-8">
+                                <form action="/post-create" method="POST" id="Post-form">
+                                  <br>
+                                  <h2 class="text-center bold-font" >Share Your Thought</h2>
+                          
+                                  <div >
+                                    <label for="postType" class="text-muted mb-1"><small>Select Post Type</small></label>
+                                    <select required id="postType" class="form-control " name="postType" form="Post-form">
+                                      <option value="general">General</option>
+                                      <option value="apply">Apply for equipment</option>
+                                      <option value="objection">Objection(user will be anonymous)</option>
+                                    </select>
+                                  </div>
+
+                                  <div >
+                                    <label for="post" class="text-muted mb-1"><small>Wite your thoughts here</small></label>
+                                    <textarea required name="body" id="post" class="body-content form-control" placeholder="Write your thoughts here......"  type="text"></textarea>
+                                  </div> 
+                                  <input type="hidden" name="_csrf" value="<%=csrfToken%>" />                    
+                                  <button type="submit" class="btn btn-lg btn-success btn-block">Submit</button>
+                                </form>
+                                </div>
+                                <div class="col-md-2"></div>
+                              </div>
+                            </div>
+                          </div>
+                            
+                          <hr>
+                          <h2 class="text-center bold-font">All Posts</h2>
+                          <hr>
+                          <%- include('includes/posts') %>
+                      </div>
+                      <div class="col-md-1"></div>
+                    </div>
+                  
+ 
+          </div>
+        </div>
+      
+    </div>
+    
+  </div>
+</div>
+ 
+
+<% }else{ %>
+    <h1>Something is wrong here!!!</h1>
+<% } %>
+  
+<%- include('includes/footer') %>
