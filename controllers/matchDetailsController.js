@@ -1,4 +1,4 @@
-const MatchDetails = require("../models/MatchDetails")
+const MatchDetails = require("../models/matchDetails")
 
 exports.addDetails = async function (req, res) {
   try {
