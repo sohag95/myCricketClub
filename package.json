@@ -7,7 +7,7 @@
     "node": "12.11.1"
   },
   "scripts": {
-    "start": "node db.js",
+    "start": "nodemon db.js",
     "watch": "nodemon db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
