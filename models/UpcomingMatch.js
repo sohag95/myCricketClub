@@ -33,13 +33,22 @@ UpcomingMatch.prototype.cleanUp = function () {
     this.data.playersName = ""
   }
 
+  //formating date
+
+  function format(d) {
+    var t = new Date(d)
+    return t.getMonth() + 1 + "/" + t.getDate() + "/" + t.getFullYear()
+  }
+  this.data.date = format(new Date(this.data.date))
+  console.log(this.data.date)
+
   // get rid of any bogus properties
   this.data = {
     details: {
       firstTeam: sanitizeHTML(this.data.firstTeam.trim(), { allowedTags: [], allowedAttributes: {} }),
       secondTeam: sanitizeHTML(this.data.secondTeam.trim(), { allowedTags: [], allowedAttributes: {} }),
       matchType: sanitizeHTML(this.data.matchType.trim(), { allowedTags: [], allowedAttributes: {} }),
-      gameDate: sanitizeHTML(this.data.date.trim(), { allowedTags: [], allowedAttributes: {} }),
+      gameDate: this.data.date,
       venue: sanitizeHTML(this.data.venue.trim(), { allowedTags: [], allowedAttributes: {} }),
       reportingTime: sanitizeHTML(this.data.reportingTime.trim(), { allowedTags: [], allowedAttributes: {} }),
       playersName: sanitizeHTML(this.data.playersName.trim(), { allowedTags: [], allowedAttributes: {} }),

@@ -1,29 +1,26 @@
-
 <%- include('includes/header') %>
-
 
 <div class="container py-md-3">
   <div class="row align-items-center">
-      
     <div class="container">
       <div class="row">
-        <div class="col-md-1" ></div>
-        <div class="col-md-10 shadow" >
-            <div class=" container" style="margin-top: 1rem;">                           
-                <div class="text-center">
-                  <picture>
-                    <img class="shadow homeProfilePic"  src="/images/<%=profileUser.regNumber%>.jpg"  alt="">
-                  </picture> 
-                  <h2 class="about-h2 text-uppercase bold-font" style="padding-top: 7px; padding-bottom: 8px;"> <%= profileUser.username %>
-                  <% if (isVisitorsProfile) { %>
-                    <span class="pt-2">
-                      <a href="/student/profile/<%= profileUser.regNumber %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit Profile"><i class="fas fa-edit"></i></a>
-                    </span>
-                  <% } %>  
-                  </h2>           
-                </div>
-            </div>    
-        
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow">
+          <div class="container" style="margin-top: 1rem">
+            <div class="text-center">
+              <picture>
+                <img class="shadow homeProfilePic" src="/images/<%=profileUser.regNumber%>.jpg" alt="" />
+              </picture>
+              <h2 class="about-h2 text-uppercase bold-font" style="padding-top: 7px; padding-bottom: 8px">
+                <%= profileUser.username %> <% if (isVisitorsProfile) { %>
+                <span class="pt-2">
+                  <a href="/student/profile/<%= profileUser.regNumber %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit Profile"><i class="fas fa-edit"></i></a>
+                </span>
+                <% } %>
+              </h2>
+            </div>
+          </div>
+
           <div class="container mb-4 shadow profileDataContainer">
             <p><strong>Name : </strong><%= profileUser.username %></p>
             <p><strong>Group : </strong><%= profileUser.group %></p>
@@ -33,25 +30,24 @@
             <p><strong>Address : </strong><%= profileUser.address %></p>
             <p><strong>Phone number : </strong><%= profileUser.phone %></p>
             <% if (isVisitorsProfile) { %>
-              <span class="pt-2">
-                <p class="py-3 mt-4 btn btn-lg btn-primary btn-color btn-block">Your monthly fees have been payed till - <strong><%= profileUser.paymentTill %></strong></p>
-              </span>
-          <% } %>
+            <span class="pt-2">
+              <p class="py-3 mt-4 btn btn-lg btn-primary btn-color btn-block">Your monthly fees have been payed till - <strong><%= profileUser.paymentTill %></strong></p>
+            </span>
+            <% } %>
           </div>
         </div>
         <div class="col-md-1"></div>
       </div>
       <div class="row">
-        <div class="col-md-1" ></div>
-        <div class="col-md-10 shadow" >
-          <h2  class="text-center mr-4 text-uppercase" style="color: #495057;font-weight: bolder;margin-top: 1rem;"><strong>statistics of performance</strong> </h2>
-          <h3 class="text-center mb-4">Total Match Played - <strong><%= statistics.matches %></strong>  </h3>
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow">
+          <h2 class="text-center mr-4 text-uppercase" style="color: #495057; font-weight: bolder; margin-top: 1rem"><strong>statistics of performance</strong></h2>
+          <h3 class="text-center mb-4">Total Match Played - <strong><%= statistics.matches %></strong></h3>
           <div class="container">
-          <div class="row">
-            
-            <div class="col-md-6 shadow">
+            <div class="row">
+              <div class="col-md-6 shadow">
                 <div class="text-center">
-                <h3 class="text-center" style="border-bottom: solid black 2px;">Batting Statistics</h3>
+                  <h3 class="text-center" style="border-bottom: solid black 2px">Batting Statistics</h3>
                 </div>
                 <p><strong>Innings : </strong><%= statistics.batting.innings %></p>
                 <p><strong>Runs : </strong><%= statistics.batting.runs %></p>
@@ -61,12 +57,10 @@
                 <p><strong>Fifties : </strong><%= statistics.batting.fifties %></p>
                 <p><strong>Hundreds : </strong><%= statistics.batting.hundreds %></p>
                 <p><strong>Hight Runs : </strong><%= statistics.batting.hightRuns %></p>
-              
-            </div>
-            <div class="col-md-6 shadow">
-            
-              <div class="text-center">
-                <h3 class="text-center" style="border-bottom: solid black 2px;">Bowling Statistics</h3>
+              </div>
+              <div class="col-md-6 shadow">
+                <div class="text-center">
+                  <h3 class="text-center" style="border-bottom: solid black 2px">Bowling Statistics</h3>
                 </div>
                 <p><strong>Innings : </strong><%= statistics.bowling.innings %></p>
                 <p><strong>Given Runs : </strong><%= statistics.bowling.runs %></p>
@@ -76,42 +70,37 @@
                 <p><strong>10 wickets : </strong><%= statistics.bowling.tenWickets %></p>
                 <p><strong>Maden Overs : </strong><%= statistics.bowling.madenOvers %></p>
                 <p><strong>Hight wickets : </strong><%= statistics.bowling.hightWicket %></p>
-                
-            
+              </div>
             </div>
           </div>
         </div>
-        </div>
-      
-      <div class="col-md-1"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-1" ></div>
-      <div class="col-md-10 shadow" >
-        <div class="container shadow">
-          
-          <div class="list-group">
-            <hr>
-            <% if (isVisitorsProfile) { %>
-              <h2 class="text-center bold-font" >All Posts</h2>
-            <% }else{ %>
-              <h2 class="text-center bold-font" ><strong><%= profileUser.username %></strong>'s All Posts</h2>
-            <% } %>
-            <hr>
-            <%if(!posts.length){%>
-              <div class="btn btn-block btn-info text-white" >
-                <h3 class="text-center"> <i>There is no post till now</i></h3>
+
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 shadow mobileResponsiveDesign">
+          <div class="container shadow">
+            <div class="list-group">
+              <hr />
+              <% if (isVisitorsProfile) { %>
+              <h2 class="text-center bold-font">All Posts</h2>
+              <% }else{ %>
+              <h2 class="text-center bold-font"><strong><%= profileUser.username %></strong>'s All Posts</h2>
+              <% } %>
+              <hr />
+              <%if(!posts.length){%>
+              <div class="btn btn-block btn-info text-white">
+                <h3 class="text-center"><i>There is no post till now</i></h3>
               </div>
-            <%}%>
-            <%- include('includes/posts') %>
+              <%}%> <%- include('includes/posts') %>
+            </div>
           </div>
         </div>
+        <div class="col-md-1"></div>
       </div>
-      <div class="col-md-1"></div>
-    </div>
     </div>
   </div>
 </div>
 
 <%- include('includes/footer') %>
-

@@ -23,12 +23,21 @@ body,
   margin: 0px;
   padding: 0px;
 }
-.menuItem {
-  width: 100%;
-  margin: auto;
-  background-color: rgb(218, 211, 211);
+.mobileResponsiveDesign {
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
+.menuItems {
+  background-color: rgb(218, 211, 211);
+  overflow-y: scroll;
+}
+.menuItemAlignment {
+  justify-content: center !important;
+}
+.menuItems::-webkit-scrollbar {
+  width: 2px;
+  height: 1px;
+}
 /* players details */
 .statisticsH5 {
   width: 80%;
@@ -132,7 +141,8 @@ body,
   background-color: #b6baba;
 }
 .shortDetailsContainer {
-  padding: 0px 2% 0px 2%;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 .paddingBottom {
   padding-bottom: 0.5rem;
@@ -155,7 +165,18 @@ body,
   position: relative;
   top: -3px;
 }
-
+/* sayingStyle */
+.sayingTextStyle {
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+.sayingTextColor {
+  color: #495057;
+}
+.textJustifyAlign {
+  text-align: justify;
+  text-justify: inter-word;
+}
 /* input portion */
 .form-control-title {
   font-size: 2rem;
@@ -219,6 +240,16 @@ body,
   p {
     margin-top: 0;
     margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .menuItemAlignment {
+    justify-content: left !important;
+  }
+  .mobileResponsiveDesign {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
@@ -287,7 +318,7 @@ textarea.tall-textarea {
   position: relative;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 .bold-font {
   color: #495057;

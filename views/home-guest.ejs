@@ -11,7 +11,7 @@
         <div class="col-md-1" ></div>
         <div class="col-md-10" style=" background-color: #e9ecef;">
           <div class="row text-center bold-font" >
-            <div class="col-2 " style=" background-color:#fff700;" ><span class="text-center"> Notice: </span></div>
+            <div class="col-2 " style=" background-color:#fff700;" ><span class="textJustifyAlign"> Notice: </span></div>
             <div class="col-10" style=" padding: 0;"> <marquee behavior="" direction=""><%=info.notice%></marquee></div>
           </div>
           <!-- <div style="margin: .50rem; ">
@@ -96,7 +96,7 @@
               <p class="btmMarginZero"><strong> Match Type : </strong><%=lastMatch.matchType%></p>
               <p class="paddingBottom"><strong> Venue : </strong><%=lastMatch.venue%></p>
             </div>
-            <div class="shortDetailsContainer">
+            <div class="shortDetailsContainer textJustifyAlign">
               <p ><strong>Short Details : </strong>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nam omnis, doloribus culpa distinctio, quisquam iste pariatur, assumenda eligendi rem in non dignissimos accusantium? Et iste blanditiis
                  sapiente eius provident saepe pariatur nihil ipsum, doloremque aspernatur? Facere error 
                  exercitationem ipsum quas quia adipisci voluptate facilis id expedita 
@@ -118,11 +118,11 @@
             <div class="upperBgColor paddingTop">
               <h4 class="text-center bolderFont" style="color: #0062cc;">Upcomming Match Details 
                 <% if (newInfo=="new") { %>
-                <span >(New)</span>
+                <span class="text-info"> (New) </span>
               <% }else if(newInfo=="today"){%>
-                <span>(Today)</span>
+                <span style="color:#fff700;"> (Today) </span>
               <%}else{%>
-                <span>(Old)</span>
+                <span class="text-danger"> (Old) </span>
               <%} %></h4>
               <p class="btmMarginZero"><strong >First team : <%=info.details.firstTeam%></strong></p>
               <p class="btmMarginZero"><strong >Second team : <%=info.details.secondTeam%></strong></p>
@@ -131,7 +131,7 @@
               <p class="btmMarginZero"><strong> Venue : </strong><%=info.details.venue%></p>
               <p class="paddingBottom"><strong> Reporting Time : </strong><%=info.details.reportingTime%></p>
             </div>
-            <div class="shortDetailsContainer">
+            <div class="shortDetailsContainer textJustifyAlign">
               <p ><strong>Selected Players : </strong><%=info.details.playersName%></p>
             </div>
             
@@ -161,7 +161,7 @@
       <div class="row" >
         <div class="col-md-1"></div>
         <div class="col-md-5 shadow upperBgColor marginTop" style=" color:#39424b;">
-          <div class="container container--narrow lead " style="margin: 5%,5%;color: #495057;font-weight: 500;">
+          <div class="sayingTextStyle sayingTextColor">
       
             <h2 class="about-h2 text-center bolderFont paddingTop" style="color: #0062cc;">Pranab Das</h2> 
             <h4 class="about-h4 text-center">Founder and CEO</h4>
@@ -169,8 +169,8 @@
               <picture>
                 <img class="shadow homePageAvatar" src="/images/20ccast0002.jpg"  alt="">
               </picture> 
-          </div>   
-            <p class="paddingTop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sohag is a student.He is doing his graduation from Siliguri College in Computer Science.
+            </div>   
+            <p class="paddingTop textJustifyAlign"><span class="bolderFont">Saying:</span> Sohag is a student.He is doing his graduation from Siliguri College in Computer Science.
               Now he is in 4th Semester.He has done his Secondary and Higher Secondary education from Sriguru Vidyamandir High School.His favourite subject was Physics 
               and wanted to take honours on that subject.But somehow he admitted in siliguri college with Computer Science honours.Now he find his interest 
               in Computer Science.SoLearn is his first Web App.lora Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, adipisci aliquam assumenda tenetur rem quam veritatis repellendus corporis alias aliquid earum fugiat sequi at porro non cupiditate enim voluptates iusto fuga? Ipsam, dolorum. <br>
@@ -180,7 +180,7 @@
           </div>
         </div>
         <div class="col-md-5 shadow upperBgColor marginTop">
-          <div class="container container--narrow lead" style="margin: 5%,5%;color: #495057;font-weight: 500;">
+          <div class="sayingTextStyle sayingTextColor">
       
             <h2 class="about-h2 text-center bolderFont paddingTop" style="color: #0062cc;">Tapan Bhawal</h2> 
             <h4 class="about-h4 text-center">Head Coach</h4>
@@ -189,7 +189,7 @@
                 <img class="shadow homePageAvatar" src="/images/20ccast0003.jpg"  alt="">
               </picture> 
           </div>   
-            <p class="paddingTop">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sohag is a student.He is doing his graduation from Siliguri College in Computer Science.
+            <p class="paddingTop textJustifyAlign"><span class="bolderFont">Saying:</span> Sohag is a student.He is doing his graduation from Siliguri College in Computer Science.
               Now he is in 4th Semester.He has done his Secondary and Higher Secondary education from Sriguru Vidyamandir High School.His favourite subject was Physics 
               and wanted to take honours on that subject.But somehow he admitted in siliguri college with Computer Science honours.Now he find his interest 
               in Computer Science.SoLearn is his first Web App.lora Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, adipisci aliquam assumenda tenetur rem quam veritatis repellendus corporis alias aliquid earum fugiat sequi at porro non cupiditate enim voluptates iusto fuga? Ipsam, dolorum. <br>

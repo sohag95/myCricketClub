@@ -185,7 +185,18 @@ exports.home = async function (req, res) {
     } else {
       newInfo = "old"
     }
+
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    function format(d) {
+      var t = new Date(d)
+      return t.getDate() + " " + monthNames[t.getMonth()] + " " + t.getFullYear()
+    }
+    info.details.gameDate = format(new Date(info.details.gameDate))
+    lastMatch.date = format(new Date(lastMatch.date))
+
+    console.log(lastMatch)
     console.log(newInfo)
+
     res.render("home-guest", {
       regErrors: req.flash("regErrors"),
       info: info,
