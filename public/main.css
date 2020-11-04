@@ -133,6 +133,9 @@ body,
   width: 10rem;
   border-radius: 50%;
 }
+.btnText {
+  white-space: normal;
+}
 /* matches */
 .innerBgColor {
   background-color: #e2e2e2;

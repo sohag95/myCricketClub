@@ -174,13 +174,24 @@ exports.home = async function (req, res) {
     let matches = await matchDetailsCollection.find().sort({ date: -1 }).toArray()
     let lastMatch = matches[0]
     console.log("Matches:", lastMatch)
-    let today = new Date().toLocaleDateString()
-    let matchOn = new Date(info.details.gameDate).toLocaleDateString()
-    let newInfo
-    console.log(today, matchOn)
-    if (today < matchOn) {
+    let today = new Date()
+    let matchOn = new Date(info.details.gameDate)
+
+    let todayDay = today.getDate()
+    let todayMonth = today.getMonth() + 1
+    let todayYear = today.getFullYear()
+
+    let todayTotal = todayDay + 2 * todayMonth + 3 * todayYear
+    let matchOnDay = matchOn.getDate()
+    let matchOnMonth = matchOn.getMonth() + 1
+    let matchOnYear = matchOn.getFullYear()
+
+    let matchOnTotal = matchOnDay + 2 * matchOnMonth + 3 * matchOnYear
+    console.log(todayTotal, matchOnTotal)
+
+    if (todayTotal < matchOnTotal) {
       newInfo = "new"
-    } else if (today == matchOn) {
+    } else if (todayTotal == matchOnTotal) {
       newInfo = "today"
     } else {
       newInfo = "old"
