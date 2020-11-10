@@ -181,12 +181,12 @@ exports.home = async function (req, res) {
     let todayMonth = today.getMonth() + 1
     let todayYear = today.getFullYear()
 
-    let todayTotal = todayDay + 2 * todayMonth + 3 * todayYear
+    let todayTotal = todayDay + 31 * todayMonth + 365 * todayYear
     let matchOnDay = matchOn.getDate()
     let matchOnMonth = matchOn.getMonth() + 1
     let matchOnYear = matchOn.getFullYear()
 
-    let matchOnTotal = matchOnDay + 2 * matchOnMonth + 3 * matchOnYear
+    let matchOnTotal = matchOnDay + 31 * matchOnMonth + 365 * matchOnYear
     console.log(todayTotal, matchOnTotal)
 
     if (todayTotal < matchOnTotal) {
@@ -206,7 +206,7 @@ exports.home = async function (req, res) {
     lastMatch.date = format(new Date(lastMatch.date))
 
     console.log(lastMatch)
-    console.log(newInfo)
+    console.log(info)
 
     res.render("home-guest", {
       regErrors: req.flash("regErrors"),

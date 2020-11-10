@@ -54,7 +54,7 @@ exports.adminRegister = function (req, res) {
     })
 }
 
-exports.uploadPicture = function (req, res) {
+exports.uploadProfilePicture = function (req, res) {
   let data = req.body
   let file = req.files.file
   console.log(data, file)
@@ -165,4 +165,24 @@ exports.deleteProfile = function (req, res) {
     req.flash("errors", "You may entered wrong registration number!!.")
     req.session.save(() => res.redirect("/admin-home"))
   }
+}
+
+exports.uploadSlidePicture = function (req, res) {
+  let data = req.body
+  let file = req.files.file
+  console.log(data, file)
+  let filePath = "public/images/" + req.body.slidePicNumber + ".jpg"
+  Admin.uploadingSlidePicture(filePath, file, req.body.slidePicNumber)
+    .then(msg => {
+      req.flash("success", msg)
+      req.session.save(function () {
+        res.redirect("/admin-home")
+      })
+    })
+    .catch(err => {
+      req.flash("errors", err)
+      req.session.save(function () {
+        res.redirect("/admin-home")
+      })
+    })
 }

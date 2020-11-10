@@ -12,13 +12,12 @@
                 <picture>
                   <img class="shadow homeProfilePic" src="/images/<%=profileUser.regNumber%>.jpg" alt="" />
                 </picture>
-                <h2 class="about-h2 text-uppercase bold-font" style="padding-top: 7px; padding-bottom: 8px">
-                  <%= profileUser.username %> <% if (isVisitorsProfile) { %>
-                  <span class="pt-2">
-                    <a href="/teacher/profile/<%= profileUser.regNumber %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit Profile"><i class="fas fa-edit"></i></a>
-                  </span>
-                  <% } %>
-                </h2>
+                <h2 class="about-h2 text-uppercase boldFont nameStyle btmMarginZero"><%= profileUser.username %></h2>
+                <% if (isVisitorsProfile) { %>
+                <p class="bolderFont">
+                  <a href="/teacher/profile/<%= profileUser.regNumber %>/edit" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Update Profile & Password"><i class="fas fa-edit"></i> Update Profile</a>
+                </p>
+                <% } %>
               </div>
             </div>
           </div>

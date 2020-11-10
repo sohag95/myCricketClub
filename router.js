@@ -27,7 +27,8 @@ router.post("/studentRegister", adminController.adminMustBeLoggedIn, studentCont
 router.post("/matchControllerRegister", adminController.adminMustBeLoggedIn, matchController.matchControllerRegister)
 router.post("/updatePayment", adminController.adminMustBeLoggedIn, studentController.updatePaymentDate)
 router.post("/updateNotice", adminController.adminMustBeLoggedIn, upcomingMatchController.updateNotice)
-router.post("/profilePictureUpload", adminController.adminMustBeLoggedIn, adminController.uploadPicture)
+router.post("/profilePictureUpload", adminController.adminMustBeLoggedIn, adminController.uploadProfilePicture)
+router.post("/slidePictureUpload", adminController.adminMustBeLoggedIn, adminController.uploadSlidePicture)
 router.post("/deleteProfile", adminController.adminMustBeLoggedIn, adminController.deleteProfile)
 
 //Match controller related routes

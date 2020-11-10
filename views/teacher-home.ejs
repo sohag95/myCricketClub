@@ -15,12 +15,14 @@
         <div class="row">
           <div class="col-md-3 align-self-start shadow mobileResponsiveDesign" >
             <div class="container" style="margin-top: 1rem;">
-              <a  href="/teacherProfile/<%= user.regNumber %>">                               
+                                             
                 <div class="text-center">
                 <picture> 
                   <img class="homeProfilePic shadow " src="/images/<%=user.regNumber%>.jpg"  alt="">
                 </picture> 
                 <h2 class="about-h2 text-uppercase nameStyle" ><%= user.username %></h2>
+              <a  href="/teacherProfile/<%= user.regNumber %>">
+                <p class="bolderFont"><i class="far fa-user-circle"></i> Go To Profile</p>
               </a>
               </div>
             </div>  
@@ -35,7 +37,7 @@
                   </h5>
                 </div>
             
-                <div id="collapseChangeGroup" class="collapse show" aria-labelledby="headingChangeGroup" data-parent="#accordion">
+                <div id="collapseChangeGroup" class="collapse" aria-labelledby="headingChangeGroup" data-parent="#accordion">
                   <div class="card-body">
                       <form action="/changeGroup" method="POST" id="group-form">
                         <div class="form-group">

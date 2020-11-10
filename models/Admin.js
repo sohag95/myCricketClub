@@ -179,4 +179,41 @@ Admin.prototype.uploadingProfilePicture = function (filePath, file) {
   })
 }
 
+Admin.uploadingSlidePicture = function (filePath, file, name) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (name == "slideNo1" || name == "slideNo2" || name == "slideNo3" || name == "slideNo4" || name == "slideNo5") {
+        if (fs.existsSync(filePath)) {
+          //file exists
+          try {
+            fs.unlinkSync(filePath)
+            //file removed
+            file.mv(filePath, function (error) {
+              if (error) {
+                reject(error)
+              } else {
+                resolve("Slide picture successfully updated.")
+              }
+            })
+          } catch (err) {
+            reject("there is some problem!!")
+          }
+        } else {
+          file.mv(filePath, function (error) {
+            if (error) {
+              reject(error)
+            } else {
+              resolve("Slide picture successfully uploaded.")
+            }
+          })
+        }
+      } else {
+        reject("You have choosen wrong slide name.")
+      }
+    } catch (err) {
+      reject("Sorry there is some problem!! Try again later..")
+    }
+  })
+}
+
 module.exports = Admin

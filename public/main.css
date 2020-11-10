@@ -103,6 +103,7 @@ body,
   margin-top: 16px;
 }
 .nameStyle {
+  color: #007bff;
   padding-top: 7px;
   padding-bottom: 8px;
   font-weight: bolder;

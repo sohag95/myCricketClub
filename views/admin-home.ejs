@@ -11,12 +11,12 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-3 align-self-start shadow mobileResponsiveDesign">
-          <div class="shadow container" style="margin-top: 1rem">
+          <div class="container" style="margin-top: 1rem">
             <div class="text-center">
               <picture>
                 <img class="homeProfilePic shadow" src="/images/<%=user.regNumber%>.jpg" alt="" />
               </picture>
-              <h2 class="about-h2 text-uppercase bold-font nameStyle"><%= user.username %></h2>
+              <h2 class="about-h2 text-uppercase boldFont nameStyle"><%= user.username %></h2>
             </div>
           </div>
           <div id="accordion">
@@ -27,7 +27,7 @@
                 </h5>
               </div>
 
-              <div id="collapseUpdateNotice" class="collapse show" aria-labelledby="headingUpdateNotice" data-parent="#accordion">
+              <div id="collapseUpdateNotice" class="collapse" aria-labelledby="headingUpdateNotice" data-parent="#accordion">
                 <div class="card-body">
                   <form action="/updateNotice" method="POST" id="payment-form">
                     <div class="form-group">
@@ -168,6 +168,37 @@
                 </div>
               </div>
             </div>
+
+            <div class="card">
+              <div class="card-header" id="headingSlidePicture">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed bolderFont" data-toggle="collapse" data-target="#collapseSlidePicture" aria-expanded="false" aria-controls="collapseSlidePicture">Upload Slide Picture</button>
+                </h5>
+              </div>
+              <div id="collapseSlidePicture" class="collapse" aria-labelledby="headingSlidePicture" data-parent="#accordion">
+                <div class="card-body">
+                  <form action="/slidePictureUpload" method="POST" id="slidefileUpload-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="slidePicNumber" class="text-muted mb-1"><small>Select Picture's Position</small></label>
+                      <select required id="slidePicNumber" class="form-control" name="slidePicNumber" form="slidefileUpload-form">
+                        <option value="slideNo1">First Position</option>
+                        <option value="slideNo2">Second Position</option>
+                        <option value="slideNo3">Third Position</option>
+                        <option value="slideNo4">Forth Position</option>
+                        <option value="slideNo5">Fifth Position</option>
+                      </select>
+                    </div>
+
+                    <div class="custom-file form-group">
+                      <label for="exampleFormControlFile1">Choose Image File To Upload</label>
+                      <input type="file" name="file" class="form-control" id="exampleFormControlFile1" />
+                    </div>
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>" />
+                    <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
             <div class="card">
               <div class="card-header" id="headingPrfileDelete">
                 <h5 class="mb-0">
@@ -187,15 +218,16 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingPasswordChange">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed bolderFont" data-toggle="collapse" data-target="#collapsePasswordChange" aria-expanded="false" aria-controls="collapsePasswordChange">Change Your Password</button>
-              </h5>
-            </div>
-            <div id="collapsePasswordChange" class="collapse" aria-labelledby="headingPasswordChange" data-parent="#accordion">
-              <div class="card-body"><%- include('includes/passwordForm') %></div>
+
+            <div class="card">
+              <div class="card-header" id="headingPasswordChange">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed bolderFont" data-toggle="collapse" data-target="#collapsePasswordChange" aria-expanded="false" aria-controls="collapsePasswordChange">Change Your Password</button>
+                </h5>
+              </div>
+              <div id="collapsePasswordChange" class="collapse" aria-labelledby="headingPasswordChange" data-parent="#accordion">
+                <div class="card-body"><%- include('includes/passwordForm') %></div>
+              </div>
             </div>
           </div>
         </div>
