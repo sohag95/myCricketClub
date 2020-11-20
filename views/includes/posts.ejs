@@ -45,12 +45,43 @@
             
             
             <% if(from=="te"){ %>
-            <i class="float-right teacherStudentTag" ><strong>Teacher</strong></i>
+            <i class="float-right teacherStudentTag" >
+              <div class="btn-group">
+                <p type="button" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <strong>Teacher</strong>
+                </p>
+                
+                <div class="dropdown-menu dropdown-menu-right">
+                  <%if(user.regNumber==post.regNumber){%>
+                    <form onsubmit="return deletePost(this);" class="inlineContainer " action="/post/<%=post._id%>/delete" method="POST">
+                      <input type="hidden" name="_csrf" value="<%=csrfToken%>" />
+                      <button class="dropdown-item text-danger" type="submit" ><i class="fas fa-trash-alt "></i> Delete Post</button>
+                    </form>
+                 <% }else{%>
+                    <p class="dropdown-item text-primary" >For Post Owner</p>
+                  <%}%>
+                </div>
+              </div>
+            </i>
             <%}else{%>
               <%if(post.postType=="objection"){%>
               <i class="float-right inObjectionTag"><strong>Student</strong></i>
               <%}else{%>
-              <i class="float-right teacherStudentTag" ><strong>Student</strong></i>
+              <i class="float-right teacherStudentTag" ><div class="btn-group">
+                <p type="button" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <strong>Student</strong>
+                </p>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <%if(user.regNumber==post.regNumber){%>
+                    <form onsubmit="return deletePost(this);" class="inlineContainer " action="/post/<%=post._id%>/delete" method="POST">
+                      <input type="hidden" name="_csrf" value="<%=csrfToken%>" />
+                      <button class="dropdown-item text-danger" type="submit" ><i class="fas fa-trash-alt "></i>  Delete Post</button>
+                    </form>
+                 <% }else{%>
+                    <p class="dropdown-item text-primary" >For Post Owner</p>
+                  <%}%>
+                </div>
+              </div></i>
               <%}%>
             <%}%>
 
@@ -202,4 +233,9 @@
         
       </div>
     </div>
+    <script>
+      function deletePost() {
+      return confirm('Do you really want to delete the post.');
+      }
+    </script>
   <%})%> 

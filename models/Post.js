@@ -237,7 +237,8 @@ Post.prototype.commentOnPost = function () {
 Post.delete = function (postIdToDelete, currentUserRegNo) {
   return new Promise(async (resolve, reject) => {
     try {
-      let post = postsCollection.findOne({ _id: new ObjectID(postIdToDelete) })
+      let post = await postsCollection.findOne({ _id: new ObjectID(postIdToDelete) })
+      console.log("executed post:", post, postIdToDelete, currentUserRegNo)
       if (post.regNumber == currentUserRegNo) {
         await postsCollection.deleteOne({ _id: new ObjectID(postIdToDelete) })
         resolve()

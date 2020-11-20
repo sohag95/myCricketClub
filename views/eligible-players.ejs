@@ -18,6 +18,7 @@
           <a class="list-group-item list-group-item-action" data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
             <img class="avatar-tiny" src="/images/<%=player.regNumber%>.jpg" />
             <strong class="text-uppercase"><%= player.username %> </strong>
+            <span class="float-right"><i class="fas fa-caret-down"></i></span>
           </a>
           <div class="collapse" id="collapse<%= player.regNumber %>">
             <div class="card card-body">
@@ -26,7 +27,7 @@
                   <div class="col-md-1"></div>
                   <div class="col-md-10 shadow upperBgColor">
                     <div class="d-flex justify-content-between container">
-                      <h2 class="text-center"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg" /> <span class="text-uppercase"><%= player.username %></span></h2>
+                      <h2 class="text-center"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg" /></h2>
                     </div>
 
                     <div class="container mb-4">

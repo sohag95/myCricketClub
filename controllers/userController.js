@@ -40,7 +40,6 @@ exports.getPosts = async function (req, res, next) {
 exports.coaches = async function (req, res) {
   try {
     let coaches = await teacherCollection.find().toArray()
-    console.log(coaches)
     res.render("coaches", { coaches: coaches })
   } catch {
     res.render("404")
@@ -113,7 +112,7 @@ exports.students = function (req, res) {
     })
 
     res.render("students", {
-      regErrors: req.flash("regErrors"),
+      playersData: playersData,
       playersDataA: groupA,
       playersDataB: groupB,
       playersDataC: groupC

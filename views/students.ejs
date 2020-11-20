@@ -5,13 +5,96 @@
     <div class="container">
       <div class="row">
         <div class="col-md-1" ></div>
-        <div class="col-md-10 shadow" >
+        <div id="accordion" class="col-md-10 shadow" >
+          <p class="text-center">
+            <a id="headingOne" class="btn btn-link card-header d-block" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">All Students </a>
+            <a id="headingTwo" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Group A Students </a>
+            <a id="headingThree" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Group B Students </a>
+            <a id="headingFour" class="btn btn-link card-header d-block collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Group C Students </a>
+          
+          </p>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <h2 class="text-center bold-font" >All Students</h2>
+            <% playersData.forEach(function(player){ %>
+  
+                <a class="list-group-item list-group-item-action upperBgColor"  data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <img class="avatar-tiny" src="/images/<%=player.regNumber%>.jpg">
+                  <strong class="text-uppercase"><%= player.username %> </strong>
+                  <span class="float-right"><i class="fas fa-caret-down"></i></span>
+                </a>
+                <div class="collapse" id="collapse<%= player.regNumber %>">
+                  <div class="card card-body">
+  
+  
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-1" ></div>
+                        <div class="col-md-10 shadow upperBgColor" >
+                          <div class="d-flex justify-content-between container">
+                            <h2 class="text-center"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg">
+                            
+                            </h2>
+                          </div>    
+                        
+                          <div class="container mb-4">
+                            <p><strong>Name : </strong><%= player.username %></p>
+                            <p><strong>Date Of Birth : </strong><%= player.dob %></p>
+                            <p><strong>Group : </strong><%= player.group %></p>
+                            <p><strong>Batting Style : </strong><%= player.battingStyle %></p>
+                            <p><strong>Bowling Style : </strong><%= player.bowlingStyle %></p> 
+                          </div>
+                        </div>
+  
+                        <div class="col-md-1"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-1" ></div>
+                        <div class="col-md-10 shadow innerBgColor" >
+                   
+                          <h3 class="text-center mb-4">Total Match Played - <strong><%=player.statistics.matches %></strong>  </h3>
+                          <div class="row">
+                            
+                            <div class="col-6 col-md-6 shadow">
+                              <div class="text-center">
+                                <h5 class="statisticsH5">Batting Statistics</h5>
+                              </div>
+                                
+                                <p><strong>Innings : </strong><%=player.statistics.batting.innings %></p>
+                                <p><strong>Runs : </strong><%=player.statistics.batting.runs %></p>
+                                <p><strong>Balls : </strong><%=player.statistics.batting.balls %></p>
+                                <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRuns %></p>
+                              
+                            </div>
+                            <div class="col-6 col-md-6 shadow">
+                                <div class="text-center">
+                                  <h5 class="statisticsH5">Bowling Statistics</h5>
+                                </div>
+                                
+                                <p><strong>Innings : </strong><%=player.statistics.bowling.innings %></p>
+                                <p><strong>Given Runs : </strong><%=player.statistics.bowling.runs %></p>
+                                <p><strong>Overs : </strong><%=player.statistics.bowling.overs %></p>
+                                <p><strong>Wickets : </strong><%=player.statistics.bowling.wickets %></p>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-1"></div>
+                    </div>
+  
+  
+                  </div>
+                </div>
+              <% }) %>
+            </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
           <h2 class="text-center bold-font" >Group A Students</h2>
           <% playersDataA.forEach(function(player){ %>
 
               <a class="list-group-item list-group-item-action upperBgColor"  data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
                 <img class="avatar-tiny" src="/images/<%=player.regNumber%>.jpg">
                 <strong class="text-uppercase"><%= player.username %> </strong>
+                <span class="float-right"><i class="fas fa-caret-down"></i></span>
               </a>
               <div class="collapse" id="collapse<%= player.regNumber %>">
                 <div class="card card-body">
@@ -22,7 +105,7 @@
                       <div class="col-md-1" ></div>
                       <div class="col-md-10 shadow upperBgColor" >
                         <div class="d-flex justify-content-between container">
-                          <h2 class="text-center"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg"> <span class="text-uppercase"><%= player.username %></span>
+                          <h2 class="text-center"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg">
                           
                           </h2>
                         </div>    
@@ -76,13 +159,15 @@
                 </div>
               </div>
             <% }) %>
-           
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <h2 class="text-center bold-font">Group B Students</h2>
               <% playersDataB.forEach(function(player){ %>
               
               <a class="list-group-item list-group-item-action upperBgColor" data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
                 <img class="avatar-tiny" src="/images/<%=player.regNumber%>.jpg">
                 <strong class="text-uppercase"><%= player.username %> </strong>
+                <span class="float-right"><i class="fas fa-caret-down"></i></span>
               </a>
               <div class="collapse" id="collapse<%= player.regNumber %>">
                 <div class="card card-body">
@@ -91,7 +176,7 @@
                       <div class="col-md-1" ></div>
                       <div class="col-md-10 shadow upperBgColor"  >
                         <div class="d-flex justify-content-between container">
-                          <h2 class="text-center text-uppercase"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg"> <%= player.username %>
+                          <h2 class="text-center text-uppercase"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg"> 
                           
                           </h2>
                         </div>    
@@ -144,13 +229,15 @@
                 </div>
               </div>
             <% }) %>
-            
+          </div> 
+          <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <h2 class="text-center bold-font">Group C Students</h2>
               <% playersDataC.forEach(function(player){ %>
               
               <a class="list-group-item list-group-item-action upperBgColor" data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
                 <img class="avatar-tiny" src="/images/<%=player.regNumber%>.jpg">
                 <strong class="text-uppercase"><%= player.username %> </strong>
+                <span class="float-right"><i class="fas fa-caret-down"></i></span>
               </a>
               <div class="collapse" id="collapse<%= player.regNumber %>">
                 <div class="card card-body">
@@ -159,7 +246,7 @@
                       <div class="col-md-1" ></div>
                       <div class="col-md-10 shadow upperBgColor">
                         <div class="d-flex justify-content-between container">
-                          <h2 class="text-center text-uppercase"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg"> <%= player.username %>
+                          <h2 class="text-center text-uppercase"><img class="avatar-student" src="/images/<%=player.regNumber%>.jpg"> 
                           
                           </h2>
                         </div>    
@@ -209,7 +296,7 @@
                 </div>
               </div>
             <% }) %>
-          
+          </div>
           
                                           
           </div>

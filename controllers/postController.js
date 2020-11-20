@@ -119,6 +119,7 @@ exports.commentOnPost = function (req, res) {
 }
 
 exports.delete = function (req, res) {
+  console.log("Post id :", req.postId, req.regNumber)
   Post.delete(req.postId, req.regNumber)
     .then(() => {
       req.flash("success", "Post successfully deleted.")
