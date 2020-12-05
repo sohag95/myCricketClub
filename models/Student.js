@@ -440,7 +440,7 @@ Student.getAllData = function (uniqueOperations) {
             innings: data.statistics.batting.innings,
             runs: data.statistics.batting.runs,
             balls: data.statistics.batting.balls,
-            hightRuns: data.statistics.batting.hightRuns
+            hightRun: data.statistics.batting.hightRun
           },
           bowling: {
             innings: data.statistics.bowling.innings,

@@ -14,7 +14,7 @@
           
           </p>
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <h2 class="text-center bold-font" >All Students</h2>
+            <h2 class="text-center bold-font" >All Students(<%= playersData.length%>)</h2>
             <% playersData.forEach(function(player){ %>
   
                 <a class="list-group-item list-group-item-action upperBgColor"  data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -62,7 +62,7 @@
                                 <p><strong>Innings : </strong><%=player.statistics.batting.innings %></p>
                                 <p><strong>Runs : </strong><%=player.statistics.batting.runs %></p>
                                 <p><strong>Balls : </strong><%=player.statistics.batting.balls %></p>
-                                <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRuns %></p>
+                                <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRun %></p>
                               
                             </div>
                             <div class="col-6 col-md-6 shadow">
@@ -88,7 +88,7 @@
               <% }) %>
             </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <h2 class="text-center bold-font" >Group A Students</h2>
+          <h2 class="text-center bold-font" >Group A Students (<%= playersDataA.length%>)</h2>
           <% playersDataA.forEach(function(player){ %>
 
               <a class="list-group-item list-group-item-action upperBgColor"  data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -135,7 +135,7 @@
                               <p><strong>Innings : </strong><%=player.statistics.batting.innings %></p>
                               <p><strong>Runs : </strong><%=player.statistics.batting.runs %></p>
                               <p><strong>Balls : </strong><%=player.statistics.batting.balls %></p>
-                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRuns %></p>
+                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRun %></p>
                             
                           </div>
                           <div class="col-6 col-md-6 shadow">
@@ -161,7 +161,7 @@
             <% }) %>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <h2 class="text-center bold-font">Group B Students</h2>
+            <h2 class="text-center bold-font">Group B Students (<%= playersDataB.length%>)</h2>
               <% playersDataB.forEach(function(player){ %>
               
               <a class="list-group-item list-group-item-action upperBgColor" data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -206,7 +206,7 @@
                               <p><strong>Innings : </strong><%=player.statistics.batting.innings %></p>
                               <p><strong>Runs : </strong><%=player.statistics.batting.runs %></p>
                               <p><strong>Balls : </strong><%=player.statistics.batting.balls %></p>
-                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRuns %></p>
+                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRun %></p>
                             
                           </div>
                           <div class="col-6 col-md-6 shadow">
@@ -231,7 +231,7 @@
             <% }) %>
           </div> 
           <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <h2 class="text-center bold-font">Group C Students</h2>
+            <h2 class="text-center bold-font">Group C Students (<%= playersDataC.length%>)</h2>
               <% playersDataC.forEach(function(player){ %>
               
               <a class="list-group-item list-group-item-action upperBgColor" data-toggle="collapse" href="#collapse<%= player.regNumber %>" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -274,7 +274,7 @@
                               <p><strong>Innings : </strong><%=player.statistics.batting.innings %></p>
                               <p><strong>Runs : </strong><%=player.statistics.batting.runs %></p>
                               <p><strong>Balls : </strong><%=player.statistics.batting.balls %></p>
-                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRuns %></p>
+                              <p><strong>Hight Run : </strong><%=player.statistics.batting.hightRun %></p>
                             
                           </div>
                           <div class="col-6 shadow">

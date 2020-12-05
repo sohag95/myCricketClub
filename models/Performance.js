@@ -186,8 +186,8 @@ Performance.prototype.calculate = function () {
   if (this.data.balls > 0) {
     this.statistics.batting.innings = this.statistics.batting.innings + 1
   }
-  if (this.statistics.batting.hightRuns < this.data.scoredRuns) {
-    this.statistics.batting.hightRuns = this.data.scoredRuns
+  if (this.statistics.batting.hightRun < this.data.scoredRuns) {
+    this.statistics.batting.hightRun = this.data.scoredRuns
   }
   this.statistics.batting.runs = this.statistics.batting.runs + this.data.scoredRuns
   this.statistics.batting.balls = this.statistics.batting.balls + this.data.balls
@@ -227,7 +227,7 @@ Performance.prototype.calculate = function () {
     fours: this.statistics.batting.fours,
     fifties: this.statistics.batting.fifties,
     hundreds: this.statistics.batting.hundreds,
-    hightRuns: this.statistics.batting.hightRuns
+    hightRun: this.statistics.batting.hightRun
   }
   this.bowling = {
     innings: this.statistics.bowling.innings,
